@@ -3,22 +3,28 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+## Install the APM agent
+Add the agent to your Gemfile.
 
-* Ruby version
+    gem 'elastic-apm'
 
-* System dependencies
+## Configure the agent
+APM is automatically started when your app boots. Configure the agent, by creating the config file `config/elastic_apm.yml`
 
-* Configuration
+Copy the following below into the  `config/elastic_apm.yml` file and modify accordingly
 
-* Database creation
+    # Set service name - allowed characters: a-z, A-Z, 0-9, -, _ and space
+    # Defaults to the name of your Rails app
+    # service_name: 'my-service'
 
-* Database initialization
+    # Use if APM Server requires a token
+    # secret_token: ''
 
-* How to run the test suite
+    # Set custom APM Server URL (default: http://localhost:8200)
+    # server_url: 'http://localhost:8200'
 
-* Services (job queues, cache servers, search engines, etc.)
+## Agent status
+Make sure your application is running and the agents are sending data.
 
-* Deployment instructions
-
-* ...
+## Load Kibana objects
+An APM index pattern is required for some features in the APM UI.
